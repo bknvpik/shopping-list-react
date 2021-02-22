@@ -1,15 +1,17 @@
 import React from "react";
 
-const Item = ({items, item, setItems, name, quantity, unit, checked}) => {
+const Item = ({items, item, setItems, name, quantity, unit}) => {
     const checkItemHandler = () => {
-        setItems(items.map((el) => {
-            if(el.key == item.key) {
-                return {
-                    ...item, checked: !item.checked
+        setItems(
+            items.map(el => {
+                if(el.key == item.key) {
+                    return {
+                        ...el, checked: !el.checked
+                    };
                 }
-            }
-            return item;
-        }));
+                return el;
+            })
+        );
     };
 
     const deleteItemHandler = () => {
@@ -17,14 +19,16 @@ const Item = ({items, item, setItems, name, quantity, unit, checked}) => {
     };
 
     return(
-        <div className={checked ? "item" : "item-checked"}>
+        <div className="item">
             <div className="item-details">
-                <p>{name}</p>
-                <p>{quantity}</p>
-                <p>{unit}</p>
+                <div className={`${item.checked ? "item-checked": ""}`}>
+                    <p><b>{name}</b></p>
+                    <p>{quantity}<em> {unit}</em></p>
+                    <hr></hr>
+                </div>
             </div>
             <div className="item-buttons">
-                <button className="check-button" onClick={checkItemHandler}><i className="fas fa-check"></i></button>
+                <button className="check-button" onClick={checkItemHandler} style={item.checked ? {background: "rgb(41, 146, 37)"} : null}><i className="fas fa-check"></i></button>
                 <button className="delete-button" onClick={deleteItemHandler}><i className="fas fa-trash"></i></button>
             </div>
         </div>

@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 
 const DropdownMenu = () => {
+    const menuOptions = ['pieces', 'grams', 'kilograms', 'milliliters', 'liters'];
+
+    const [click, setClick] = useState(false);
+
+    const clickHandler = (e) => {
+        e.preventDefault();
+        setClick(!click);
+    };
+
     return(
-        <div className="dropdown-menu">
-            <div className="unit">
-                <ul>
-                    <li>pcs</li>
-                    <li>grams</li>
-                    <li>kilograms</li>
-                    <li>mililiters</li>
-                    <li>liters</li>
-                </ul>
+    <div className="dropdown-menu" onClick={clickHandler}>
+        <button className="menu-button">unit</button>
+        {click ? (
+            <div className="menu-dropped">
+                {menuOptions.map(option => (
+                    <button className="menu-option">{option}</button>
+                ))}
             </div>
-        </div>
+        ) : null}
+    </div>
     );
 };
 

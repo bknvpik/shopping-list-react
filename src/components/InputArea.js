@@ -10,6 +10,8 @@ const InputArea = ({inputText, setInputText, items, setItems, quantity, setQuant
 
     const addNewItemHandler = (e) => {
         e.preventDefault();
+        if(!inputText)
+            return;
         setItems([
             ...items, {key: uuid(), name: inputText, checked: false, quantity: quantity, unit: unit}
         ]);
@@ -26,12 +28,12 @@ const InputArea = ({inputText, setInputText, items, setItems, quantity, setQuant
     }
 
     return(
-        <div id="input-area">
+        <div className="input-area">
             <form>
-            <input type="text" name="new-item" placeholder="add new item..." value={inputText} onChange={inputTextHandler} ></input>
-            <input type="number" name="quantity" min="1" value={quantity} onChange={setQuantityHandler} ></input>
-            <DropdownMenu />
-            <button id="add-item-button" type="submit" onClick={addNewItemHandler}>+</button>
+                <input type="text" name="new-item" placeholder="add new item..." value={inputText} onChange={inputTextHandler} ></input>
+                <input type="number" name="quantity" min="1" value={quantity} onChange={setQuantityHandler} ></input>
+                <DropdownMenu />
+                <button className="add-item-button" type="submit" onClick={addNewItemHandler}>+</button>
             </form>
         </div>
     );

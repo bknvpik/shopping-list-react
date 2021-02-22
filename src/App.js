@@ -1,4 +1,5 @@
 import React, {useState } from "react";
+import './App.scss';
 import InputArea from './components/InputArea';
 import ItemsList from './components/ItemsList';
 
@@ -11,17 +12,19 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <img src="" alt=""></img>
+        <img src="shopping-cart.svg" alt=""></img>
         <h1>Shopping List</h1>
       </header>
-      <InputArea 
-        inputText={inputText} 
-        setInputText={setInputText} 
-        items={items} setItems={setItems} 
-        quantity={quantity} setQuantity={setQuantity} 
-        unit={unit} setUnit={setUnit} 
-      />
-      <ItemsList items={items} setItems={setItems} />
+      <main>
+        <InputArea 
+          inputText={inputText} 
+          setInputText={setInputText} 
+          items={items} setItems={setItems} 
+          quantity={quantity} setQuantity={setQuantity} 
+          unit={unit} setUnit={setUnit} 
+        />
+        <ItemsList items={items} setItems={setItems} />
+      </main>
       <footer>
         Simple Shopping List App created using React.
       </footer>

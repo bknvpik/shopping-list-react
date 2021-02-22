@@ -1,3 +1,153 @@
-.item-checked {
-    color: red;
+$light-gray: rgb(109, 106, 117);
+$dark-gray: rgb(55, 50, 62);
+$bluish-gray: rgb(69, 90, 100);
+$yellow: rgb(255, 193, 7);
+$green: rgb(41, 146, 37);
+$red: rgb(233, 52, 52);
+$font: Segoe UI;
+
+@mixin flexCenter($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+  
+@mixin inputsRadius {
+    border: none;
+    border-radius: 50px;
+    height: 2.5rem;
+    margin: 0.5rem;
+}
+  
+@mixin shadows {
+    box-shadow: 6px 7px 0px $bluish-gray;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: $font;
+    background: $light-gray;
+}
+
+.app-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    @include flexCenter(row);
+    background: $dark-gray;
+    color: white;
+    width: 100%;
+    height: 10%;
+    font-size: 1.2rem;
+    img {
+        width: 4rem;
+    }
+    img, h1 {
+      padding: 0 1rem 0 1rem;
+    }
+}
+
+main {
+    @include flexCenter(column);
+    height: 85%;
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 3rem;
+
+    .dropdown-header {
+        
+    }
+}
+
+.input-area {
+    width: 35%;
+    height: 10%;
+  
+}
+
+.items-list {
+    @include inputsRadius();
+    @include shadows();
+    height: 100%;
+    margin-bottom: 1rem!important;
+    width: 35%;
+    color: black;
+    background: white;
+    overflow: hidden;
+}
+
+.items-box {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+  
+.item {
+    @include flexCenter(row);
+    justify-content: flex-start;
+    margin: 2rem;
+    hr {
+      border: none;
+      border-top: 1px solid $light-gray;
+    }
+    button {
+      @include inputsRadius();
+      color: white;
+      cursor: pointer;
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+    .item-checked {
+    color: $light-gray;
+    text-decoration: line-through;
+    }
+  
+  .item-details {
+    width: 100%;
+  }
+  
+  .item-buttons {
+    @include flexCenter(column);
+  }
+
+  .check-button {
+    background: $light-gray;
+    margin: 0;
+    &:hover {
+      background: $green;
+      color: white;
+    }
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .delete-button {
+    background: $light-gray;
+    &:hover {
+      background: $red;
+    }
+    &:focus {
+        outline: 0;
+      }
+  }
+}
+
+footer {
+    @include flexCenter(row);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 5%;
+    color: white;
+    background: $dark-gray;
 }
