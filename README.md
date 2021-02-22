@@ -1,4 +1,4 @@
-# Project Name & Pitch
+## Project Name & Pitch
 
 Shopping List App
 
