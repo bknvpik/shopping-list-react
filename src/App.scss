@@ -7,147 +7,224 @@ $red: rgb(233, 52, 52);
 $font: Segoe UI;
 
 @mixin flexCenter($direction) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
 }
   
 @mixin inputsRadius {
-    border: none;
-    border-radius: 50px;
-    height: 2.5rem;
-    margin: 0.5rem;
+  border: none;
+  border-radius: 50px;
+  height: 2.5rem;
+  margin: 0.5rem;
 }
   
 @mixin shadows {
-    box-shadow: 6px 7px 0px $bluish-gray;
+  box-shadow: 6px 7px 0px $bluish-gray;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    color: white;
-    font-family: $font;
-    background: $light-gray;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: $font;
+  background: $light-gray;
 }
 
 .app-container {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
 
 header {
-    @include flexCenter(row);
-    background: $dark-gray;
-    color: white;
-    width: 100%;
-    height: 10%;
-    font-size: 1.2rem;
-    img {
-        width: 4rem;
-    }
-    img, h1 {
-      padding: 0 1rem 0 1rem;
-    }
+  @include flexCenter(row);
+  background: $dark-gray;
+  color: white;
+  width: 100%;
+  height: 10%;
+  font-size: 1.2rem;
+  img {
+      width: 4rem;
+  }
+  img, h1 {
+    padding: 0 1rem 0 1rem;
+  }
 }
 
 main {
-    @include flexCenter(column);
-    height: 85%;
-}
-
-.dropdown-menu {
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 3rem;
-
-    .dropdown-header {
-        
-    }
+  @include flexCenter(column);
+  height: 85%;
 }
 
 .input-area {
-    width: 35%;
-    height: 10%;
-  
-}
-
-.items-list {
+  width: 35%;
+  height: 10%;
+  form {
+    height: 100%;
+    @include flexCenter(row);
+  }
+  input[name="new-item"] {
     @include inputsRadius();
     @include shadows();
-    height: 100%;
-    margin-bottom: 1rem!important;
-    width: 35%;
-    color: black;
-    background: white;
-    overflow: hidden;
-}
-
-.items-box {
-    height: 100%;
+    height: 3rem;
+    margin: 0 0.5rem 0 0;
+    font-weight: bold;
+    padding-left: 1rem;
     width: 100%;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-  
-.item {
-    @include flexCenter(row);
-    justify-content: flex-start;
-    margin: 2rem;
-    hr {
-      border: none;
-      border-top: 1px solid $light-gray;
+    letter-spacing: 0.5px;
+    &:focus {
+      outline: 0;
     }
-    button {
+  }
+  input[name="quantity"] {
+    @include inputsRadius();
+    @include shadows();
+    height: 3rem;
+    width: 3rem;
+    padding: 0;
+    margin: 0 0.5rem 0 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    &:focus {
+      outline: 0;
+    }
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+  .dropdown-menu {
+    display: inline-block;
+    .menu-button {
       @include inputsRadius();
-      color: white;
+      @include shadows();
+      @include flexCenter(row);
+      color: black;
+      background: white;
+      height: 3rem;
+      width: 8rem;
+      margin: 0 0.5rem 0 0.5rem;
+      padding: 0;
+      font-weight: bold;
       cursor: pointer;
-      width: 2.5rem;
-      height: 2.5rem;
+      &:focus {
+        outline: 0;
+      }
+      &:hover {
+        background: $dark-gray;
+        color: white;
+      }
     }
-    .item-checked {
-    color: $light-gray;
-    text-decoration: line-through;
+    .menu-dropped {
+      @include flexCenter(column);
+      position: absolute;
+      z-index: 1;
+      .menu-option {
+        @include inputsRadius();
+        @include shadows();
+        background: $dark-gray;
+        color: white;
+        font-weight: bold;
+        width: 8rem;
+        height: 3rem;
+        margin-top: 0.1rem;
+        margin-bottom: 0.1rem;
+        cursor: pointer;
+        &:focus {
+          outline: 0;
+        }
+        &:hover {
+          background: $yellow;
+        }
+      }
     }
-  
-  .item-details {
-    width: 100%;
   }
-  
-  .item-buttons {
-    @include flexCenter(column);
-  }
-
-  .check-button {
-    background: $light-gray;
-    margin: 0;
+  .add-item-button {
+    @include inputsRadius();
+    @include shadows();
+    height: 3rem;
+    min-width: 3rem;
+    margin: 0 0 0 0.5rem;
+    background: $yellow;
+    color: white;
+    cursor: pointer;
     &:hover {
-      background: $green;
-      color: white;
+      color: $yellow;
+      background: white;
     }
     &:focus {
       outline: 0;
     }
   }
+}
 
-  .delete-button {
+.items-list {
+  @include inputsRadius();
+  @include shadows();
+  height: 100%;
+  margin-bottom: 1rem!important;
+  width: 35%;
+  color: black;
+  background: white;
+  overflow: hidden;
+  .items-box {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+}
+  
+.item {
+  @include flexCenter(row);
+  justify-content: flex-start;
+  margin: 2rem;
+  hr {
+    border: none;
+    border-top: 1px solid $light-gray;
+  }
+  button {
+    @include inputsRadius();
+    color: white;
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  .item-checked {
+  color: $light-gray;
+  text-decoration: line-through;
+  }
+  .item-details {
+    width: 100%;
+  }
+  .item-buttons {
+    @include flexCenter(column);
+  }
+  .check-button, .delete-button {
     background: $light-gray;
+    &:focus {
+      outline: 0;
+    }
+  }
+  .check-button {
+    &:hover {
+      background: $green;
+    }
+  }
+  .delete-button {
     &:hover {
       background: $red;
     }
-    &:focus {
-        outline: 0;
-      }
   }
 }
 
 footer {
-    @include flexCenter(row);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 5%;
-    color: white;
-    background: $dark-gray;
+  @include flexCenter(row);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  color: white;
+  background: $dark-gray;
 }

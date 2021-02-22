@@ -23,17 +23,13 @@ const InputArea = ({inputText, setInputText, items, setItems, quantity, setQuant
         setQuantity(e.target.value);
     }
 
-    const setUnitHandler = (e) => {
-        console.log(e.target.value);
-    }
-
     return(
         <div className="input-area">
             <form>
                 <input type="text" name="new-item" placeholder="add new item..." value={inputText} onChange={inputTextHandler} ></input>
                 <input type="number" name="quantity" min="1" value={quantity} onChange={setQuantityHandler} ></input>
-                <DropdownMenu />
-                <button className="add-item-button" type="submit" onClick={addNewItemHandler}>+</button>
+                <DropdownMenu unit={unit} setUnit={setUnit}/>
+                <button className="add-item-button" type="submit" onClick={addNewItemHandler}><i className="fas fa-plus"></i></button>
             </form>
         </div>
     );

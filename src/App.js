@@ -7,7 +7,7 @@ function App() {
   const [inputText, setInputText] = useState("");
   const [items, setItems] = useState([]);
   const [quantity, setQuantity] = useState(1);
-  const [unit, setUnit] = useState("pcs");
+  const [unit, setUnit] = useState("pieces");
 
   return (
     <div className="app-container">
@@ -19,9 +19,12 @@ function App() {
         <InputArea 
           inputText={inputText} 
           setInputText={setInputText} 
-          items={items} setItems={setItems} 
-          quantity={quantity} setQuantity={setQuantity} 
-          unit={unit} setUnit={setUnit} 
+          items={items}
+          setItems={setItems} 
+          quantity={quantity}
+          setQuantity={setQuantity} 
+          unit={unit}
+          setUnit={setUnit} 
         />
         <ItemsList items={items} setItems={setItems} />
       </main>
