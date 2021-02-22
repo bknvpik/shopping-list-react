@@ -1,8 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import uuid from 'react-uuid'
 
-const DropdownMenu = () => {
+const DropdownMenu = ({setUnit, unit}) => {
+    const menuOptions = ['pieces', 'grams', 'kilograms', 'milliliters', 'liters'];
+
+    const [open, setOpen] = useState(false);
+
+    const hoverHandler = (e) => {
+        e.preventDefault();
+        setOpen(true);
+    };
+
+    const leaveHandler = (e) => {
+        e.preventDefault();
+        setOpen(false);
+    };
+
+    const setUnitHandler = (e) => {
+        e.preventDefault();
+        setUnit(e.target.innerHTML);
+    }
+
     return(
-        <p>DropdownMenu</p>
+    <div className="dropdown-menu" onMouseLeave={leaveHandler}>
+        <div className="menu-button" onMouseEnter={hoverHandler}>{unit}</div>
+        {open ? (
+            <div className="menu-dropped">
+                {menuOptions.map(option => (
+                    <button className="menu-option" onClick={setUnitHandler} key={uuid()}>{option}</button>
+                ))}
+            </div>
+        ) : null}
+    </div>
     );
 };
 
