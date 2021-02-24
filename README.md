@@ -10,6 +10,8 @@ This project is currently in development. Shopping List is fully functional, req
 
 ## Project Preview
 
+https://bknvpik.github.io/shopping-list-react/
+
 ## Installation and Setup Instructions
 
 Clone down this repository. You will need `node` and `npm` installed globally on your machine. 
