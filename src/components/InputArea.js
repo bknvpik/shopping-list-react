@@ -17,6 +17,7 @@ const InputArea = ({inputText, setInputText, items, setItems, quantity, setQuant
         ]);
         setInputText("");
         setQuantity(1);
+        setUnit("pieces");
     };
 
     const setQuantityHandler = (e) => {

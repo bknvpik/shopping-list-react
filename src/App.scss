@@ -153,6 +153,10 @@ main {
       color: $yellow;
       background: white;
     }
+    &:active {
+      color: white;
+      background: $yellow;
+    }
     &:focus {
       outline: 0;
     }

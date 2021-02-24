@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const Item = ({items, item, setItems, name, quantity, unit}) => {
+
     const checkItemHandler = () => {
         setItems(
             items.map(el => {

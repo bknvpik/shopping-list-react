@@ -12,7 +12,6 @@ function App() {
   return (
     <div className="app-container">
       <header>
-        <img src="shopping-cart.svg" alt=""></img>
         <h1>Shopping List</h1>
       </header>
       <main>
