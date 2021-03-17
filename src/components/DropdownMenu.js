@@ -11,7 +11,6 @@ const DropdownMenu = ({setUnit, unit}) => {
         opacity: open ? 1 : 0
     });
 
-
     const hoverHandler = (e) => {
         e.preventDefault();
         setOpen(true);
@@ -33,8 +32,8 @@ const DropdownMenu = ({setUnit, unit}) => {
         {open ? (
             <div className="menu-dropped">
                 {menuOptions.map(option => (
-                    <animated.div style={spring}>
-                        <button className="menu-option" onClick={setUnitHandler} key={uuid()}>{option}</button>
+                    <animated.div style={spring} key={uuid()}>
+                        <button className="menu-option" onClick={setUnitHandler}>{option}</button>
                     </animated.div>
                 ))}
             </div>
