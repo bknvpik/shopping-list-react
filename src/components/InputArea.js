@@ -17,6 +17,7 @@ const InputArea = ({inputText, setInputText, items, setItems, quantity, setQuant
         ]);
         setInputText("");
         setQuantity(1);
+        setUnit("pieces");
     };
 
     const setQuantityHandler = (e) => {
@@ -26,7 +27,7 @@ const InputArea = ({inputText, setInputText, items, setItems, quantity, setQuant
     return(
         <div className="input-area">
             <form>
-                <input type="text" name="new-item" placeholder="add new item..." value={inputText} onChange={inputTextHandler} ></input>
+                <input type="text" name="new-item" placeholder="new item" value={inputText} onChange={inputTextHandler} ></input>
                 <input type="number" name="quantity" min="1" value={quantity} onChange={setQuantityHandler} ></input>
                 <DropdownMenu unit={unit} setUnit={setUnit}/>
                 <button className="add-item-button" type="submit" onClick={addNewItemHandler}><i className="fas fa-plus"></i></button>
