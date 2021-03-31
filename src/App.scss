@@ -6,7 +6,7 @@ $bluish-gray: rgb(69, 90, 100);
 $yellow: rgb(255, 193, 7);
 $green: rgb(41, 146, 37);
 $red: rgb(233, 52, 52);
-$font: Segoe UI;
+$font: 'Roboto', sans-serif;
 
 @mixin flexCenter($direction) {
   display: flex;
